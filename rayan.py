@@ -17,6 +17,9 @@ missing_data = airline[missing_rows]
 # Replace inf values with NaN
 airline.replace([np.inf, -np.inf], np.nan, inplace=True)
 
+# Replace infinity values in 'Age' with a suitable value (e.g., 100)
+airline['Age'].replace([np.inf, -np.inf], 100, inplace=True)
+
 # Drop rows with missing values
 airline.dropna(inplace=True)
 
