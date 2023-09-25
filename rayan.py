@@ -39,8 +39,8 @@ filtered_data = airline[(airline['Age'] >= selected_min_age) & (airline['Age'] <
                         & (airline['Flight Status'] == selected_flight_status)]
 
 # Display filtered data
-st.write("Filtered Data:")
-st.write(filtered_data)
+# st.write("Filtered Data:")
+# st.write(filtered_data)
 
 # Histogram of passenger ages using Matplotlib for filtered data
 st.subheader("Histogram of Passenger Ages (Filtered Data)")
