@@ -4,9 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import seaborn as sns
-
-# Set the option to handle inf values as null
-pd.set_option('mode.use_inf_as_null', True)
+import numpy as np
 
 # Load the dataset
 dataset = pd.read_csv("Airline Dataset.csv")
@@ -15,6 +13,9 @@ airline = dataset.copy()
 # Check for missing values in each row
 missing_rows = airline.isnull().any(axis=1)
 missing_data = airline[missing_rows]
+
+# Replace inf values with NaN
+airline.replace([np.inf, -np.inf], np.nan, inplace=True)
 
 # Drop rows with missing values
 airline.dropna(inplace=True)
