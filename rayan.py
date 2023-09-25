@@ -37,13 +37,13 @@ if not missing_data.empty:
     st.subheader("Missing Data")
     st.write(missing_data)
 
-# Histogram of passenger ages
+# Histogram of passenger ages using Matplotlib
 st.subheader("Histogram of Passenger Ages")
 fig_age = plt.figure(figsize=(8, 6))
-sns.histplot(data=airline[:250], x='Age', bins=20, kde=True)
+plt.hist(airline['Age'][:250], bins=20, density=True, alpha=0.6, color='g', edgecolor='k')
 plt.title('Histogram of Passenger Ages')
 plt.xlabel('Age')
-plt.ylabel('Frequency')
+plt.ylabel('Density')
 st.pyplot(fig_age)
 
 # Top 10 Nationalities among passengers
