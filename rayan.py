@@ -6,24 +6,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
-# Load the dataset
-dataset = pd.read_csv("Airline Dataset.csv")
-airline = dataset.copy()
-
-# Check for missing values in each row
-missing_rows = airline.isnull().any(axis=1)
-missing_data = airline[missing_rows]
-
-# Replace inf values with NaN
-airline.replace([np.inf, -np.inf], np.nan, inplace=True)
-
-# Filter out rows with 'inf' values in 'Age' column
-airline = airline[~airline['Age'].isin([np.inf, -np.inf])]
+# Read, Explore, and Preprocess the dataset:
+airline = pd.read_csv("Airline Dataset.csv")
 
 # Drop rows with missing values
 airline.dropna(inplace=True)
 
-# Convert 'Departure Date' to datetime
+# Convert 'Departure Date' to datetime if it's not already in datetime format
 airline['Departure Date'] = pd.to_datetime(airline['Departure Date'], errors='coerce')
 
 # Extract the year and create a new 'Year' column
@@ -33,9 +22,9 @@ airline['Year'] = airline['Departure Date'].dt.year
 st.title("Airline Data Analysis")
 
 # Display missing data (if any)
-if not missing_data.empty:
+if not airline.empty:
     st.subheader("Missing Data")
-    st.write(missing_data)
+    st.write(airline)
 
 # Histogram of passenger ages using Matplotlib
 st.subheader("Histogram of Passenger Ages")
