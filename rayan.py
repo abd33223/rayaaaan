@@ -51,6 +51,8 @@ plt.xlabel('Age')
 plt.ylabel('Density')
 st.pyplot(fig_age_filtered)
 
+
+st.write("This histogram provides a visual representation of the age distribution of passengers. Each bar in the histogram corresponds to a range of ages, while the height of each bar indicates the frequency or number of passengers within that age range. Histograms are an effective way to explore the underlying patterns within a dataset, and in this case, it helps us understand the age demographics of the passengers. The histogram reveals insights into the central tendencies and spread of passenger ages. ")
 # Top 10 Nationalities among passengers
 st.subheader("Top 10 Nationalities Among Passengers (First 500 Records)")
 top_nationalities_filtered = filtered_data['Nationality'][:500].value_counts().head(10).reset_index()
