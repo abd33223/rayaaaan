@@ -65,6 +65,8 @@ fig_nationalities_filtered = px.sunburst(
 )
 fig_nationalities_filtered.update_traces(textinfo='label+percent parent')
 st.plotly_chart(fig_nationalities_filtered)
+st.write("This pie chart presents a visual summary of the top 10 nationalities among passengers in the airline industry. Each slice in the chart represents one of the top 10 nationalities, and the size of each slice is directly proportional to the percentage of passengers from that particular country within the overall passenger population. Understanding the top 10 nationalities among airline passengers is essential for airlines, travel professionals, and aviation industry stakeholders. It offers valuable insights for tailoring services, in-flight experiences, and marketing strategies to cater to the needs and preferences of the most prominent nationality groups. This visualization simplifies complex demographic data by concentrating on the top 10 nationalities, providing a clear and accessible overview of the primary passenger demographics")
+
 
 # Animated bubble chart on a map
 st.subheader("Distribution of Flights on World Map (Animated Bubble Chart)")
