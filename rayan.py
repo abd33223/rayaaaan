@@ -76,13 +76,14 @@ fig_map_filtered = px.scatter_geo(filtered_data[:1000],
                                   color='Flight Status',
                                   title='Distribution of Flights on World Map (Animated Bubble Chart)')
 st.plotly_chart(fig_map_filtered)
+st.write("This animated bubble chart offers a compelling view of global flight delays. In this visualization, each bubble represents a single delayed flight, and the animation dynamically illustrates the patterns and locations of flight delays over time. Unlike other bubble charts, the size of the bubbles in this visualization remains constant to emphasize the equal representation of each delayed flight. The animation showcases the movement and clustering of delayed flights worldwide, providing valuable insights into where and when delays occur most frequently.")
 
 # Box plot of passenger ages by continent
 st.subheader("Box Plot of Passenger Ages by Continent")
 fig_box_filtered = px.box(filtered_data.head(500), x='Continents', y='Age',
                            title='Box Plot of Passenger Ages by Continent')
 st.plotly_chart(fig_box_filtered)
-
+st.write("This box plot offers a comprehensive view of the distribution of passenger ages by continent, providing insights into the age demographics of travelers across the world. Each box represents a different continent, with the box's elements revealing crucial statistics about passenger age distribution within that continent.")
 # Line chart of flight counts by month
 st.subheader("Number of Flights by Month (First 1000 Records)")
 filtered_data['Departure Date'] = pd.to_datetime(filtered_data['Departure Date'])
@@ -95,3 +96,4 @@ fig_line_filtered = px.line(flight_counts_by_month_filtered, x='Departure Date',
                             labels={'Departure Date': 'Month', 'Flight Count': 'Flight Count'})
 fig_line_filtered.update_xaxes(rangeslider_visible=True)
 st.plotly_chart(fig_line_filtered)
+st.write("This line chart provides a clear and dynamic representation of the number of flights by month, using the first 1000 records from the dataset. The chart showcases the fluctuation in flight frequency throughout the year, highlighting any seasonal patterns or trends within this subset of data.")
